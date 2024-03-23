@@ -7,5 +7,6 @@
 
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include <cmath>
 
 #endif //GL_EXAMPLES_HEADERS_H

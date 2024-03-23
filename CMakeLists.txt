@@ -17,6 +17,8 @@ add_executable(gl_examples
         src/Examples/QuadExample.cpp
         src/Examples/QuadExample.h
         src/headers.h
+        src/Examples/TriFanExample.cpp
+        src/Examples/TriFanExample.h
 )
 
 target_link_libraries(${APP_NAME}

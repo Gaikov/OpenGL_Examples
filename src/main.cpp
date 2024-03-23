@@ -1,6 +1,7 @@
 #include "headers.h"
 #include "Examples/QuadExample.h"
 #include "BaseExample.h"
+#include "Examples/TriFanExample.h"
 
 #define WIDTH 1400
 #define HEIGHT 1400
@@ -16,22 +17,21 @@ int main(int argv, char **args) {
         return -1;
     }
 
-    BaseExample *entry = new QuadExample();
-
     glfwMakeContextCurrent(window);
     glClearColor(0.5, 0.5, 0.5, 1);
 
-    if (!entry->Init()) {
+    //BaseExample *example = new QuadExample();
+    BaseExample *example = new TriFanExample();
+    if (!example->Init()) {
         return -1;
     }
 
     double prevTime = glfwGetTime();
-
     while (!glfwWindowShouldClose(window)) {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         double currTime = glfwGetTime();
-        entry->Update(float(currTime - prevTime));
+        example->Update(float(currTime - prevTime));
         prevTime = currTime;
 
         glFlush();
@@ -39,8 +39,8 @@ int main(int argv, char **args) {
         glfwPollEvents();
     }
 
+    delete example;
     glfwDestroyWindow(window);
     glfwTerminate();
-
     return 0;
 }
